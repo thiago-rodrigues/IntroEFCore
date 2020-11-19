@@ -17,6 +17,9 @@ dotnet ef migrations script -p .\Efcore\Efcore.csproj -o .\Efcore\Migrations\Ide
 
 [Executa Script SQL]
 dotnet ef database update -p .\Efcore\Efcore.csproj -v
+
+[RoolBack Migrations]
+dotnet ef database update PrimeiraMigracao -p .\Efcore\Efcore.csproj -v
 ```
 
 # Dependências Necessárias para Migração
