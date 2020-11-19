@@ -52,5 +52,10 @@ var consultaPorMetodo = db.Clientes.AsNoTracking().Where(p => p.Id > 0).ToList()
 
 Obs: O método "Find" quando não se utiliza "AsNoTracking()" ele retorna dados em memoria.
 
-
+[CARREGAMENTO ADIANTADO]
+var pedidos = db.Pedidos.Include(p => p.Itens).ToList()  
+var pedidos = db.Pedidos
+                      .Include(p => p.Itens).ToList()  
+                        .ThenInclude(p => p.Produto).ToList()
+Obs: propriedade "Include" e "ThenInclude"
 ```
