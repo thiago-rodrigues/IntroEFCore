@@ -43,5 +43,14 @@ dotnet ef migrations remove -p .\Efcore\Efcore.csproj
 [ADICIONAR EM MASSA]
 db.AddRange(cliente,produto);
 
+[CONSULTA]
+var consultaPorSintaxe = (from c in db.Clientes where c.Id>0 select c).ToList();
+var consultaPorMetodo = db.Clientes.Where(p => p.Id > 0).ToList();
+
+[NoTracking]
+var consultaPorMetodo = db.Clientes.AsNoTracking().Where(p => p.Id > 0).ToList();
+
+Obs: O método "Find" quando não se utiliza "AsNoTracking()" ele retorna dados em memoria.
+
 
 ```
