@@ -8,7 +8,7 @@ namespace Efcore.Data
     {
         public DbSet<Pedido> Pedido { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
-            optionsBuilder.UseSqlServer("Data source=TRR-Note;Initial Catalog=EFCore;Integrated Security=false;User Id=sa, Password=masterkey");
+            optionsBuilder.UseSqlServer("Data Source=TRR-NOTE;User Id=sa;Password=masterkey;Initial Catalog=EFCore;Integrated Security=false;MultipleActiveResultSets=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
