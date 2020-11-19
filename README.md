@@ -58,4 +58,17 @@ var pedidos = db.Pedidos
                       .Include(p => p.Itens).ToList()  
                         .ThenInclude(p => p.Produto).ToList()
 Obs: propriedade "Include" e "ThenInclude"
+
+[ATUALIZAR]
+var cliente = db.Clientes.Find(1)
+db.Clientes.Update(cliente)
+
+Obs: Quando chamamos o método Update o mesmo mapeia que todos os campos da entidade estão sendo alterados, se não chamar o método 
+ele vai atualzar somente os campos que sofreram alteração.
+
+[REMOVER]
+var cliente = db.Clientes.Find(2)
+1º db.Clientes.Remove(cliente)
+2º db.Remove(cliente)
+3º db.Entry(cliente).State = EntityState.Deleted;
 ```
