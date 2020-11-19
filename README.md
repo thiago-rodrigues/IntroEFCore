@@ -71,4 +71,16 @@ var cliente = db.Clientes.Find(2)
 1º db.Clientes.Remove(cliente)
 2º db.Remove(cliente)
 3º db.Entry(cliente).State = EntityState.Deleted;
+
+[PARAMETROS DE RECONEXÃO E ALTERAR O NOME DA TABELA DE HIST. MIGRATIONS]
+
+optionsBuilder
+        .UseLoggerFactory(_logger)
+        .EnableSensitiveDataLogging()
+        .UseSqlServer("Data Source=TRR-NOTE;User Id=sa;Password=masterkey;Initial Catalog=EFCore;Integrated Security=false;MultipleActiveResultSets=true;"),
+        p => p.EnableRetryOnFailure(
+            maxRetryCount: 2,
+            maxRetryDelay: TimesSpan.FromSeconds(5),
+            errorNumbersToAdd: null).MigrationsHistoryTable("curso_ef_core","historico"));
+
 ```
