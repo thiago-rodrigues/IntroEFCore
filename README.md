@@ -1,6 +1,13 @@
 # IntroEFCore
 Introdução ao EFCore
 
+# Dependências Necessárias para Migração
+```
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.Design
+
+```
+
 # Comandos Utilizados
 ```
 dotnet tool install --global dotnet-ef --version 3.1.5
@@ -20,11 +27,21 @@ dotnet ef database update -p .\Efcore\Efcore.csproj -v
 
 [RoolBack Migrations]
 dotnet ef database update PrimeiraMigracao -p .\Efcore\Efcore.csproj -v
+
+[Remover Migrations]
+dotnet ef migrations remove -p .\Efcore\Efcore.csproj
 ```
 
-# Dependências Necessárias para Migração
+#Operações CRUD
 ```
-Microsoft.EntityFrameworkCore.Tools
-Microsoft.EntityFrameworkCore.Design
+[ADICIONAR]
+1º - db.Produto.Add(produto);
+2º - db.Set<Produto>().Add(produto);
+3º - db.Entry(produto).State = EntityState.Added;
+4º - db.Add(produto);
+
+[ADICIONAR EM MASSA]
+db.AddRange(cliente,produto);
+
 
 ```
